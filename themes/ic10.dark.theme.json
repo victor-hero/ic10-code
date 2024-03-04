@@ -1,0 +1,64 @@
+{
+    "name": "ic.dark.theme",
+    "colors": {
+        "editor.background": "#131313",
+        "editor.foreground": "#aaaaaa"
+    },
+    "tokenColors": [
+        {
+            "scope": "ic.keyword",
+            "settings": {
+                "foreground": "#ffd000",
+                "fontStyle": "bold"
+            }
+        },
+        {
+            "scope": "ic.command",
+            "settings": {
+                "foreground": "#FFA500"
+            }
+        },
+        {
+            "scope": "ic.function",
+            "settings": {
+                "foreground": "#008866"
+            }
+        },
+        {
+            "scope": "ic.numeric",
+            "settings": {
+                "foreground": "#00bbff"
+            }
+        },
+        {
+            "scope": "ic.device",
+            "settings": {
+                "foreground": "#00ff00"
+            }
+        },
+        {
+            "scope": "ic.variable",
+            "settings": {
+                "foreground": "#0066ff"
+            }
+        },
+        {
+            "scope": "ic.flag",
+            "settings": {
+                "foreground": "#800080"
+            }
+        },
+        {
+            "scope": "ic.parameter.logic",
+            "settings": {
+                "foreground": "#FFA500"
+            }
+        },
+        {
+            "scope": "ic.parameter.slot",
+            "settings": {
+                "foreground": "#FFA500"
+            }
+        }
+    ]
+}

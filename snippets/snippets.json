@@ -1,0 +1,947 @@
+{
+    "alias": {
+        "prefix": "alias",
+        "body": [
+            "alias ${1:name} ${2:r?|d?}"
+        ],
+        "description": "为设备(d?)或是寄存器(r?)定义一个标签名(name)"
+    },
+    "define": {
+        "prefix": "define",
+        "body": [
+            "define ${1:name} ${2:num}"
+        ],
+        "description": "为一个数值(num)定义一个标签名(name)"
+    },
+    "move": {
+        "prefix": "move",
+        "body": [
+            "move ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "将一个值a(r?|num)复制到寄存器(r?)中"
+    },
+    "sleep": {
+        "prefix": "sleep",
+        "body": [
+            "sleep ${1:a(r?|num)}"
+        ],
+        "description": "程序将在这里等待a(r?|num)秒"
+    },
+    "yield": {
+        "prefix": "yield",
+        "body": [
+            "yield"
+        ],
+        "description": "程序将在这里等待 1 tick"
+    },
+    "j": {
+        "prefix": "j",
+        "body": [
+            "j ${1:a(r?|num)}"
+        ],
+        "description": "跳转到第 a 行或标签所在行"
+    },
+    "jr": {
+        "prefix": "jr",
+        "body": [
+            "jr ${1:a(r?|num)}"
+        ],
+        "description": "跳转到当前行号加 a 的那一行, a 可以为负数"
+    },
+    "jal": {
+        "prefix": "jal",
+        "body": [
+            "jal ${1:a(r?|num)}"
+        ],
+        "description": "将下一行号存储在 ra 寄存器, 然后跳转到第 a 行或标签所在行"
+    },
+    "l": {
+        "prefix": "l",
+        "body": [
+            "l ${1:r?} ${2:d?} ${3:logicType}"
+        ],
+        "description": "将设备(d?)的逻辑参数(logicType)的值复制到寄存器(r?)里"
+    },
+    "s": {
+        "prefix": "s",
+        "body": [
+            "s ${1:d?} ${2:logicType} ${3:r?} "
+        ],
+        "description": "将寄存器(r?)里的值写入设备(d?)的逻辑参数(logicType)里"
+    },
+    "ls": {
+        "prefix": "ls",
+        "body": [
+            "ls ${1:r?} ${2:d?} ${3:slotIndex} ${4:logicSlotType}"
+        ],
+        "description": "将设备(d?)的插槽位(slotIndex)的逻辑参数(logicSlotType)的值复制到寄存器(r?)里. slotIndex指的是该设备的第几个插槽, logicSlotType指设备的插槽数据类型"
+    },
+    "ss": {
+        "prefix": "ss",
+        "body": [
+            "ss ${1:d?} ${2:slotIndex} ${3:logicSlotType} ${4:r?} "
+        ],
+        "description": "将寄存器(r?)里的值写入设备(d?)的在插槽位(slotIndex)的逻辑参数(logicSlotType)里. slotIndex指的是该设备的第几个插槽, logicSlotType指设备的插槽数据类型"
+    },
+    "lb": {
+        "prefix": "lb",
+        "body": [
+            "lb ${1:r?} ${2:deviceHash} ${3:logicType} ${4:batchMode}"
+        ],
+        "description": "批量将同一网络中相同设备哈希(deviceHash)的逻辑参数(logicType)的值复制到寄存器(r?)里, 批量模式(batchMode=0|1|2|3), 0=Average:平均,1=Sum:求和,2=Minimum:最小,3=Maximum:最大"
+    },
+    "sb": {
+        "prefix": "sb",
+        "body": [
+            "sb ${1:deviceHash} ${2:logicSlotType} ${3:r?} "
+        ],
+        "description": "将寄存器(r?)里的值批量写入同一网络中相同设备哈希(deviceHash)的逻辑参数(logicSlotType)里"
+    },
+    "lbs": {
+        "prefix": "lbs",
+        "body": [
+            "lbs ${1:r?} ${2:deviceHash} ${3:slotIndex} ${4:logicSlotType} ${5:batchMode}"
+        ],
+        "description": "批量将同一网络中相同设备哈希(deviceHash)的在插槽位(slotIndex)的逻辑参数(logicSlotType)的值复制到寄存器(r?)里, 批量模式(batchMode=0|1|2|3), 0=Average:平均,1=Sum:求和,2=Minimum:最小,3=Maximum:最大"
+    },
+    "sbs": {
+        "prefix": "sbs",
+        "body": [
+            "sbs ${1:deviceHash} ${2:slotIndex} ${3:logicSlotType} ${4:r?} "
+        ],
+        "description": "将寄存器(r?)里的值批量写入同一网络中相同设备哈希(deviceHash)的在插槽位(slotIndex)的逻辑参数(logicSlotType)里"
+    },
+    "lbn": {
+        "prefix": "lbn",
+        "body": [
+            "lbn ${1:r?} ${2:deviceHash} ${3:nameHash} ${4:logicType} ${5:batchMode}"
+        ],
+        "description": "批量将同一网络中相同设备哈希(deviceHash)但有指定名称哈希(nameHash)设备的逻辑参数(logicType)的值复制到寄存器(r?)里, 批量模式(batchMode=0|1|2|3), 0=Average:平均,1=Sum:求和,2=Minimum:最小,3=Maximum:最大"
+    },
+    "sbn": {
+        "prefix": "sbn",
+        "body": [
+            "sbn ${1:deviceHash} ${2:nameHash} ${3:logicType} ${4:r?} "
+        ],
+        "description": "将寄存器(r?)里的值批量写入同一网络中相同设备哈希(deviceHash)但有指定名称哈希(nameHash)设备的逻辑参数(logicType)里"
+    },
+    "lbns": {
+        "prefix": "lbns",
+        "body": [
+            "lbns ${1:r?} ${2:deviceHash} ${3:nameHash} ${4:slotIndex} ${5:logicSlotType} ${6:batchMode}"
+        ],
+        "description": "批量将同一网络中相同设备哈希(deviceHash)但有指定名称哈希(nameHash)设备的在插槽位(slotIndex)逻辑参数(logicSlotType)的值复制到寄存器(r?)里, 批量模式(batchMode=0|1|2|3), 0=Average:平均,1=Sum:求和,2=Minimum:最小,3=Maximum:最大"
+    },
+    "ld": {
+        "prefix": "ld",
+        "body": [
+            "ld ${1:r?} ${2:id(r?|num)} ${3:logicType}"
+        ],
+        "description": "将有指定(id)设备的逻辑参数(logicType)的值复制到寄存器(r?)里"
+    },
+    "sd": {
+        "prefix": "sd",
+        "body": [
+            "sd ${1:id(r?|num)} ${2:logicType} ${3:r?} "
+        ],
+        "description": "将寄存器(r?)里的值写入有指定(id)的设备的逻辑参数(logicType)里"
+    },
+    "lr": {
+        "prefix": "lr",
+        "body": [
+            "lr ${1:r?} ${2:d?} ${3:reagentMode} ${4:reagentHash}"
+        ],
+        "description": "检查设备(d?)的试剂数据(reagentHash)的情况, 将结果复制到寄存器(r?)里, 支持的模式(reagentMode=0|1|2), 0=Contents:已有的材料, 1=Required:缺少的材料, 2=Recipe:配方的材料"
+    },
+    "beqz": {
+        "prefix": "beqz",
+        "body": [
+            "beqz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a==0, 则跳转到第 b 行或标签所在行"
+    },
+    "beqzal": {
+        "prefix": "beqzal",
+        "body": [
+            "beqzal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a==0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "breqz": {
+        "prefix": "breqz",
+        "body": [
+            "breqz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a==0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "seqz": {
+        "prefix": "seqz",
+        "body": [
+            "seqz ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a==0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bnez": {
+        "prefix": "bnez",
+        "body": [
+            "bnez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a!=0, 则跳转到第 b 行或标签所在行"
+    },
+    "bnezal": {
+        "prefix": "bnezal",
+        "body": [
+            "bnezal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a!=0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "brnez": {
+        "prefix": "brnez",
+        "body": [
+            "brnez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a!=0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "snez": {
+        "prefix": "snez",
+        "body": [
+            "snez ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a!=0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bgtz": {
+        "prefix": "bgtz",
+        "body": [
+            "bgtz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>0, 则跳转到第 b 行或标签所在行"
+    },
+    "bgtzal": {
+        "prefix": "bgtzal",
+        "body": [
+            "bgtzal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "brgtz": {
+        "prefix": "brgtz",
+        "body": [
+            "brgtz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "sgtz": {
+        "prefix": "sgtz",
+        "body": [
+            "sgtz ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a>0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bltz": {
+        "prefix": "bltz",
+        "body": [
+            "bltz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<0, 则跳转到第 b 行或标签所在行"
+    },
+    "bltzal": {
+        "prefix": "bltzal",
+        "body": [
+            "bltzal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "brltz": {
+        "prefix": "brltz",
+        "body": [
+            "brltz ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "sltz": {
+        "prefix": "sltz",
+        "body": [
+            "sltz ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a<0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bgez": {
+        "prefix": "bgez",
+        "body": [
+            "bgez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>=0, 则跳转到第 b 行或标签所在行"
+    },
+    "bgezal": {
+        "prefix": "bgezal",
+        "body": [
+            "bgezal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>=0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "brgez": {
+        "prefix": "brgez",
+        "body": [
+            "brgez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a>=0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "sgez": {
+        "prefix": "sgez",
+        "body": [
+            "sgez ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a>=0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "blez": {
+        "prefix": "blez",
+        "body": [
+            "blez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<=0, 则跳转到第 b 行或标签所在行"
+    },
+    "blezal": {
+        "prefix": "blezal",
+        "body": [
+            "blezal ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<=0, 则将下一行号存储在 ra 寄存器, 然后跳转到第 b 行或标签所在行"
+    },
+    "brlez": {
+        "prefix": "brlez",
+        "body": [
+            "brlez ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a<=0, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "slez": {
+        "prefix": "slez",
+        "body": [
+            "slez ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "如果 a<=0, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "beq": {
+        "prefix": "beq",
+        "body": [
+            "beq ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a==b, 则跳转到第 c 行或标签所在行"
+    },
+    "beqal": {
+        "prefix": "beqal",
+        "body": [
+            "beqal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a==b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "breq": {
+        "prefix": "breq",
+        "body": [
+            "breq ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a==b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "seq": {
+        "prefix": "seq",
+        "body": [
+            "seq ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a==b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bne": {
+        "prefix": "bne",
+        "body": [
+            "bne ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a!=b, 则跳转到第 c 行或标签所在行"
+    },
+    "bneal": {
+        "prefix": "bneal",
+        "body": [
+            "bneal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a!=b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brne": {
+        "prefix": "brne",
+        "body": [
+            "brne ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a!=b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "sne": {
+        "prefix": "sne",
+        "body": [
+            "sne ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a!=b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bgt": {
+        "prefix": "bgt",
+        "body": [
+            "bgt ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>b, 则跳转到第 c 行或标签所在行"
+    },
+    "bgtal": {
+        "prefix": "bgtal",
+        "body": [
+            "bgtal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brgt": {
+        "prefix": "brgt",
+        "body": [
+            "brgt ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "sgt": {
+        "prefix": "sgt",
+        "body": [
+            "sgt ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a>b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "blt": {
+        "prefix": "blt",
+        "body": [
+            "blt ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<b, 则跳转到第 c 行或标签所在行"
+    },
+    "bltal": {
+        "prefix": "bltal",
+        "body": [
+            "bltal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brlt": {
+        "prefix": "brlt",
+        "body": [
+            "brlt ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "slt": {
+        "prefix": "slt",
+        "body": [
+            "slt ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a<b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bge": {
+        "prefix": "bge",
+        "body": [
+            "bge ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>=b, 则跳转到第 c 行或标签所在行"
+    },
+    "bgeal": {
+        "prefix": "bgeal",
+        "body": [
+            "bgeal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>=b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brge": {
+        "prefix": "brge",
+        "body": [
+            "brge ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a>=b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "sge": {
+        "prefix": "sge",
+        "body": [
+            "sge ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a>=b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "ble": {
+        "prefix": "ble",
+        "body": [
+            "ble ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<=b, 则跳转到第 c 行或标签所在行"
+    },
+    "bleal": {
+        "prefix": "bleal",
+        "body": [
+            "bleal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<=b, 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brle": {
+        "prefix": "brle",
+        "body": [
+            "brle ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "如果 a<=b, 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "sle": {
+        "prefix": "sle",
+        "body": [
+            "sle ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "如果 a<=b, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bap": {
+        "prefix": "bap",
+        "body": [
+            "bap ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) <= max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值小于等于c * max(abs(a), abs(b)), 则跳转到第 d 行或标签所在行"
+    },
+    "bapal": {
+        "prefix": "bapal",
+        "body": [
+            "bapal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) <= max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值小于等于c * max(abs(a), abs(b)), 则将下一行号存储在 ra 寄存器, 然后跳转到第 d 行或标签所在行"
+    },
+    "brap": {
+        "prefix": "brap",
+        "body": [
+            "brap ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) <= max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值小于等于c * max(abs(a), abs(b)), 则跳转到当前行号加 d 的那一行, d 可以为负数"
+    },
+    "sap": {
+        "prefix": "sle",
+        "body": [
+            "sle ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)} ${4:c(r?|num)}"
+        ],
+        "description": "abs(a - b) <= max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值小于等于c * max(abs(a), abs(b)), 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bna": {
+        "prefix": "bna",
+        "body": [
+            "bna ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) > max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值大于c * max(abs(a), abs(b)), 则跳转到第 d 行或标签所在行"
+    },
+    "bnaal": {
+        "prefix": "bnaal",
+        "body": [
+            "bnaal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) > max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值大于c * max(abs(a), abs(b)), 则将下一行号存储在 ra 寄存器, 然后跳转到第 d 行或标签所在行"
+    },
+    "brna": {
+        "prefix": "brna",
+        "body": [
+            "brna ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)} ${4:d(r?|num)}"
+        ],
+        "description": "abs(a - b) > max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值大于c * max(abs(a), abs(b)), 则跳转到当前行号加 d 的那一行, d 可以为负数"
+    },
+    "sna": {
+        "prefix": "sna",
+        "body": [
+            "sna ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)} ${4:c(r?|num)}"
+        ],
+        "description": "abs(a - b) > max(c * max(abs(a), abs(b)), float.epsilon * 8, 如果 a 和 b 的差的绝对值大于c * max(abs(a), abs(b)), 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bapz": {
+        "prefix": "bapz",
+        "body": [
+            "bapz ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) <= float.epsilon * 8, 如果 a 的绝对值小于等于 float.epsilon * 8, (b无效), 则跳转到第 c 行或标签所在行"
+    },
+    "bapzal": {
+        "prefix": "bapzal",
+        "body": [
+            "bapzal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) <= float.epsilon * 8, 如果 a 的绝对值小于等于 float.epsilon * 8, (b无效), 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brapz": {
+        "prefix": "brapz",
+        "body": [
+            "brapz ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) <= float.epsilon * 8, 如果 a 的绝对值小于等于 float.epsilon * 8, (b无效), 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "sapz": {
+        "prefix": "sapz",
+        "body": [
+            "sapz ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "abs(a) <= float.epsilon * 8, 如果 a 的绝对值小于等于 float.epsilon * 8, (b无效), 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bnaz": {
+        "prefix": "bnaz",
+        "body": [
+            "bnaz ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) > float.epsilon * 8, 如果 a 的绝对值大于 float.epsilon * 8, (b无效), 则跳转到第 c 行或标签所在行"
+    },
+    "bnazal": {
+        "prefix": "bnazal",
+        "body": [
+            "bnazal ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) > float.epsilon * 8, 如果 a 的绝对值大于 float.epsilon * 8, (b无效), 则将下一行号存储在 ra 寄存器, 然后跳转到第 c 行或标签所在行"
+    },
+    "brnaz": {
+        "prefix": "brnaz",
+        "body": [
+            "brnaz ${1:a(r?|num)} ${2:b(r?|num)} ${3:c(r?|num)}"
+        ],
+        "description": "abs(a) > float.epsilon * 8, 如果 a 的绝对值大于 float.epsilon * 8, (b无效), 则跳转到当前行号加 c 的那一行, c 可以为负数"
+    },
+    "snaz": {
+        "prefix": "snaz",
+        "body": [
+            "snaz ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "abs(a) > float.epsilon * 8, 如果 a 的绝对值大于 float.epsilon * 8, (b无效), 则寄存器 r?=1, 否则 r?=0"
+    },
+    "push": {
+        "prefix": "push",
+        "body": [
+            "push ${1:a(r?|num)}"
+        ],
+        "description": "sp 指针+1后, 将值写入所指向行的堆栈里, 每一次插拔芯片 sp 指针都会归 0, 堆栈最大512行"
+    },
+    "pop": {
+        "prefix": "pop",
+        "body": [
+            "pop ${1:r?}"
+        ],
+        "description": "将堆栈顶部的数据复制进寄存器 r?, 然后 sp 指针 -1"
+    },
+    "peek": {
+        "prefix": "peek",
+        "body": [
+            "peek ${1:r?}"
+        ],
+        "description": "将堆栈 sp 指针所在位置的数据复制进寄存器 r?"
+    },
+    "poke": {
+        "prefix": "poke",
+        "body": [
+            "poke address ${1:r?|num} value ${2:r?|num}"
+        ],
+        "description": "将值 value=(r?|num) 写入堆栈地址 address=(r?|num) 所在的位置"
+    },
+    "get": {
+        "prefix": "get",
+        "body": [
+            "get ${1:r?} ${2:d?} address ${3:r?|num}"
+        ],
+        "description": "获取同一网络中指定 (d?) IC芯片, 指定堆栈地址 address=(r?|num) 处的值并复制到寄存器 r? 里"
+    },
+    "getd": {
+        "prefix": "getd",
+        "body": [
+            "getd ${1:r?} ${2:id(r?|num)} address ${3:r?|num}"
+        ],
+        "description": "获取同一网络中指定 id=(r?|num) IC芯片, 指定堆栈地址 address=(r?|num) 处的值并复制到寄存器 r? 里"
+    },
+    "put": {
+        "prefix": "put",
+        "body": [
+            "put ${1:d?} address ${2:r?|num} value ${3:r?|num}"
+        ],
+        "description": "将 value=(r?|num) 写入到同一网络中指定 (d?) IC芯片, 指定堆栈地址 address=(r?|num) 处"
+    },
+    "putd": {
+        "prefix": "putd",
+        "body": [
+            "putd ${1:id(r?|num)} address ${2:r?|num} value ${3:r?|num}"
+        ],
+        "description": "将 value=(r?|num) 写入到里同一网络中指定 id=(r?|num) IC芯片, 指定堆栈的地址 address=(r?|num) 处"
+    },
+    "bnan": {
+        "prefix": "bnan",
+        "body": [
+            "bnan ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a==NaN, 则跳转到第 b 行或标签所在行"
+    },
+    "brnan": {
+        "prefix": "brnan",
+        "body": [
+            "brnan ${1:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "如果 a==NaN, 则跳转到当前行号加 b 的那一行, b 可以为负数"
+    },
+    "snan": {
+        "prefix": "snan",
+        "body": [
+            "snan ${1:a(r?|num)}"
+        ],
+        "description": "如果 a==NaN, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "snanz": {
+        "prefix": "snanz",
+        "body": [
+            "snanz ${1:a(r?|num)}"
+        ],
+        "description": "如果 a==NaN, 则寄存器 r?=0, 否则 r?=1"
+    },
+    "and": {
+        "prefix": "and",
+        "body": [
+            "and ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "对 a 和 b 的二进制按位进行与运算"
+    },
+    "or": {
+        "prefix": "or",
+        "body": [
+            "or ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "对 a 和 b 的二进制按位进行或运算"
+    },
+    "nor": {
+        "prefix": "nor",
+        "body": [
+            "nor ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "对 a 和 b 的二进制按位进行或非运算, 只有 a==b==0 时输出 1"
+    },
+    "xor": {
+        "prefix": "xor",
+        "body": [
+            "xor ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "对 a 和 b 的二进制按位进行异或运算, 只有 a != b 时输出 1"
+    },
+    "not": {
+        "prefix": "not",
+        "body": [
+            "not ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "对 a 的二进制按位进行非运算, 也就是 a = !a"
+    },
+    "log": {
+        "prefix": "log",
+        "body": [
+            "log ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = 以 10 为底数, 求 a 的对数"
+    },
+    "add": {
+        "prefix": "add",
+        "body": [
+            "add ${1:r?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a + b"
+    },
+    "sub": {
+        "prefix": "sub",
+        "body": [
+            "sub ${1:r?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a - b"
+    },    
+    "mul": {
+        "prefix": "mul",
+        "body": [
+            "mul ${1:r?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a * b"
+    },
+    "div": {
+        "prefix": "mul",
+        "body": [
+            "mul ${1:r?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a / b"
+    },
+    "sqrt": {
+        "prefix": "sqrt",
+        "body": [
+            "mul ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = a 的平方根"
+    },
+    "exp": {
+        "prefix": "exp",
+        "body": [
+            "exp ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = 自然常数 e 的 a 次方"
+    },
+    "abs": {
+        "prefix": "abs",
+        "body": [
+            "abs ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = |a|, a 的绝对值"
+    },    
+    "mod": {
+        "prefix": "mod",
+        "body": [
+            "mod ${1:r?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a % b, a / b 的余数"
+    },
+    "floor": {
+        "prefix": "floor",
+        "body": [
+            "floor ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = 小于 a 的最大整数, 如 a = 3.4 时 r? = 3, 如 a = 3.5 时 r? = 3"
+    },
+    "round": {
+        "prefix": "round",
+        "body": [
+            "round ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = a 四舍五入整数, 如 a = 3.4 时 r? = 3, 如 a = 3.5 时 r? = 4"
+    },
+    "ceil": {
+        "prefix": "ceil",
+        "body": [
+            "ceil ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = 大于 a 的最小整数, 如 a = 3.4 时 r? = 4, 如 a = 3.5 时 r? = 4"
+    },
+    "trunc": {
+        "prefix": "trunc",
+        "body": [
+            "trunc ${1:r?} ${2:a(r?|num)}"
+        ],
+        "description": "寄存器 r? = 删除小数部分的 a, 如 a = 3.4 时 r? = 3, 如 a = 3.5 时 r? = 3"
+    },
+    "max": {
+        "prefix": "max",
+        "body": [
+            "max ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a 和 b 中效大的值"
+    },
+    "min": {
+        "prefix": "min",
+        "body": [
+            "min ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)}"
+        ],
+        "description": "寄存器 r? = a 和 b 中效小的值"
+    },
+    "select": {
+        "prefix": "select",
+        "body": [
+            "select ${1:r?} ${2:a(r?|num)} ${3:b(r?|num)} ${4:c(r?|num)}"
+        ],
+        "description": "如果 a != 0, 则寄存器 r? = b 否则 r? = c"
+    },
+    "rand": {
+        "prefix": "rand",
+        "body": [
+            "rand ${1:r?}"
+        ],
+        "description": "寄存器 r? 随机在 0 - 1 的范围内取出一个浮点值, 0 <= r? <=1"
+    },
+    "sin": {
+        "prefix": "sin",
+        "body": [
+            "sin ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "正弦函数, a = 弧度角, 用弧度度求正弦值"
+    },
+    "asin": {
+        "prefix": "asin",
+        "body": [
+            "asin ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "反正弦函数, a = 正弦值, 用正弦值求弧度度"
+    },
+    "cos": {
+        "prefix": "cos",
+        "body": [
+            "cos ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "余弦函数, a = 弧度角, 用弧度度求余弦值"
+    },
+    "acos": {
+        "prefix": "acos",
+        "body": [
+            "acos ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "反余弦函数, a = 余弦值, 用余弦值求弧度度"
+    },
+    "tan": {
+        "prefix": "tan",
+        "body": [
+            "tan ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "正切函数, a = 弧度角, 用弧度度求正切值"
+    },
+    "atan": {
+        "prefix": "atan",
+        "body": [
+            "atan ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "反正切函数, a = 正切值, 用正切值求弧度度"
+    },
+    "atan2": {
+        "prefix": "atan2",
+        "body": [
+            "atan2 ${1:d?} ${2:a(r?|num)} ${2:b(r?|num)}"
+        ],
+        "description": "反正切函数, r? 等于 a/b 的值再执行 atan"
+    },
+    "bdns": {
+        "prefix": "bdns",
+        "body": [
+            "bdns ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中设备(d?)是否有连接对应设备, 如果 d? 未连接, 则跳转到第 a 行或标签所在行"
+    },
+    "bdnsal": {
+        "prefix": "bdnsal",
+        "body": [
+            "bdnsal ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 未连接, 则将下一行号存储在 ra 寄存器, 然后跳转到第 a 行或标签所在行"
+    },
+    "brdns": {
+        "prefix": "brdns",
+        "body": [
+            "brdns ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 未连接, 则跳转到当前行号加 a 的那一行, a 可以为负数"
+    },
+    "sdns": {
+        "prefix": "sdns",
+        "body": [
+            "sdns ${1:r?} ${2:d?}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 未连接, 则寄存器 r?=1, 否则 r?=0"
+    },
+    "bdse": {
+        "prefix": "bdse",
+        "body": [
+            "bdse ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中设备(d?)是否有连接对应设备, 如果 d? 已连接, 则跳转到第 a 行或标签所在行"
+    },
+    "bdseal": {
+        "prefix": "bdseal",
+        "body": [
+            "bdseal ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 已连接, 则将下一行号存储在 ra 寄存器, 然后跳转到第 a 行或标签所在行"
+    },
+    "brdse": {
+        "prefix": "brdse",
+        "body": [
+            "brdse ${1:d?} ${2:a(r?|num)}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 已连接, 则跳转到当前行号加 a 的那一行, a 可以为负数"
+    },
+    "sdse": {
+        "prefix": "sdse",
+        "body": [
+            "sdse ${1:r?} ${2:d?}"
+        ],
+        "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 已连接, 则寄存器 r?=1, 否则 r?=0"
+    }
+}
