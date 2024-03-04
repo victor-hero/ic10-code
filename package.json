@@ -4,6 +4,7 @@
   "description": "stationeers ic10 language",
   "version": "0.0.8",
   "icon": "images/logo.png",
+  "publisher": "victor-hero-net",
   "engines": {
     "vscode": "^1.87.0"
   },
