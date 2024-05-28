@@ -82,13 +82,13 @@
 		"devices": {
 			"patterns": [{
 				"name": "punctuation.definition.quote.begin.markdown",
-				"match": "\\b(d[0-5])\\b"
+				"match": "\\b(d[0-5]|db)\\b"
 			}]
 		},
 		"variables": {
 			"patterns": [{
 				"name": "punctuation.definition.list.begin.markdown",
-				"match": "\\b(r[a,\\d{1,2}])\\b"
+				"match": "\\b(r[a,\\d{1,2}]|r\\d{2})\\b"
 			}]
 		},
 		"jumps": {
@@ -106,13 +106,19 @@
 		"logic_type": {
 			"patterns": [{
 				"name": "meta.embedded.assembly",
-				"match": "\\b(SizeX|SignalStrength|SignalID|Vertical|Activate|AirRelease|Bpm|Charge|ClearMemory|CollectableGoods|Color|Combustion|CombustionInput|CombustionLimiter|CombustionOutput|CombustionOutput2|CompletionRatio|ElevatorLevel|ElevatorSpeed|Error|ExportCount|Filtration|Flush|ForceWrite|Fuel|Harvest|Horizontal|Idle|ImportCount|InterrogationProgress|LineNumber)\\b"
+				"match": "\\b(SettingInput|SettingOutput|TotalMoles|Pressure|Temperature|Power|Open|Mode|Lock|Setting|Maximum|Ratio|Quantity|On|RequiredPower|PrefabHash|ReferenceId|NameHash|Reagents|RecipeHash|PowerActual|PowerPotential|PowerGeneration|SizeX|SignalStrength|SignalID|Vertical|Activate|AirRelease|Bpm|Charge|ClearMemory|CollectableGoods|Color|Combustion|CombustionInput|CombustionLimiter|CombustionOutput|CombustionOutput2|CompletionRatio|ElevatorLevel|ElevatorSpeed|Error|ExportCount|Filtration|Flush|ForceWrite|Fuel|Harvest|Horizontal|Idle|ImportCount|InterrogationProgress|LineNumber)\\b"
 			}]
 		},
 		"slot_type": {
 			"patterns": [{
 				"name": "meta.embedded.assembly",
-				"match": "\\b(ChargeRatio|Class)\\b"
+				"match": "\\b(Occupied|OccupantHash|Quantity|Damage|Charge|ChargeRatio|Class|MaxQuantity|PrefabHash|SortingClass|ReferenceId)\\b"
+			}]
+		},
+		"connection_type": {
+			"patterns": [{
+				"name": "keyword.other.unit",
+				"match": "\\b(Connection|Power)\\b"
 			}]
 		},
 		"comments": {
