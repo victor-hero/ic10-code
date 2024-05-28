@@ -70,7 +70,7 @@
 		"functions_stack": {
 			"patterns": [{
 				"name": "entity.name.scope-resolution",
-				"match": "\\b(peek|push|pop|sp)\\b"
+				"match": "\\b(peek|push|pop)\\b"
 			}]
 		},
 		"numbers": {
@@ -88,7 +88,7 @@
 		"variables": {
 			"patterns": [{
 				"name": "punctuation.definition.list.begin.markdown",
-				"match": "\\b(r[a,\\d{1,2}]|r\\d{2})\\b"
+				"match": "\\b(sp|r[a,\\d{1,2}]|r\\d{2})\\b"
 			}]
 		},
 		"jumps": {
