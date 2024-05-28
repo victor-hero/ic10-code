@@ -18,3 +18,8 @@ add|sub|mul|div|mod|trunc|sqrt|round|floor|exp|log|sla|sll|sra|srl|max|min|ceil|
 
 
 move|l|lr|ls|lb|lbn|lbns|lbs|s|ss|sb|sbn|sbs
+
+
+编译方式
+用 vsce package 可以打包新的版本，注意要先修改  package.json 里的版本号
+用 vsce publish 可以发布这个包

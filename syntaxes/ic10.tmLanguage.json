@@ -70,7 +70,7 @@
 		"functions_stack": {
 			"patterns": [{
 				"name": "entity.name.scope-resolution",
-				"match": "\\b(peek|push|pop)\\b"
+				"match": "\\b(peek|push|pop|sp)\\b"
 			}]
 		},
 		"numbers": {
