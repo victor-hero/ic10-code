@@ -64,7 +64,7 @@
 		"functions_math": {
 			"patterns": [{
 				"name": "entity.name.scope-resolution",
-				"match": "\\b(add|sub|mul|div|mod|trunc|sqrt|round|floor|exp|log|sla|sll|sra|srl|max|min|ceil|abs|rand|sin|cos|asin|acos|tan|atan|atan2|and|or|seqz|nor|xor)\\b"
+				"match": "\\b(add|sub|mul|div|mod|trunc|sqrt|round|floor|exp|log|sla|sll|sra|srl|max|min|ceil|abs|rand|sin|cos|asin|acos|tan|atan|atan2|and|or|seqz|nor|xor|not)\\b"
 			}]
 		},
 		"functions_stack": {

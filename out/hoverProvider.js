@@ -30,7 +30,6 @@ exports.IcCodeProvideHover = void 0;
 const vscode = __importStar(require("vscode"));
 const path_1 = __importDefault(require("path"));
 const snippets = require("../snippets/snippets.json");
-const reg = new RegExp(/\\b[\w\W]*/);
 const regTooltipBegin = new RegExp(/\$\{(\d+):/g);
 const regTooltipEnd = new RegExp(/\}/g);
 class IcCodeProvideHover {

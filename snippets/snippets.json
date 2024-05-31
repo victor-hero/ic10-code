@@ -1075,14 +1075,14 @@
         "body": [
             "Ratio"
         ],
-        "description": "返回比例值，返回 0 - 1 之间的数值，不同的设备有不同的效果，具体参考游戏里的百科。"
+        "description": "返回比例值，返回 0 - 1 之间的数值，不同的设备有不同的效果，具体参考游戏里的百科"
     },
     "Quantity": {
         "prefix": "Quantity",
         "body": [
             "Quantity"
         ],
-        "description": "返回数量值，不同的设备有不同的效果，具体参考游戏里的百科。"
+        "description": "返回物品数量值；如果是逻辑槽位，则返回的是槽位里物品的数量值"
     },
     "On": {
         "prefix": "On",
@@ -1103,7 +1103,7 @@
         "body": [
             "PrefabHash"
         ],
-        "description": "返回设备的当前 HASH"
+        "description": "返回设备的当前 HASH，如果是插槽则是返回插槽里物品的 HASH"
     },
     "ReferenceId": {
         "prefix": "ReferenceId",
@@ -1280,5 +1280,59 @@
             "CompletionRatio"
         ],
         "description": "返回设备当前工作的完成比例"
-    }    
+    },"SoundAlert": {
+        "prefix": "SoundAlert",
+        "body": [
+            "SoundAlert"
+        ],
+        "description": "读取/写入 设备扬声器上播放的声音警报，0-45，具体请查看游戏百科"
+    },"Volume": {
+        "prefix": "Volume",
+        "body": [
+            "Volume"
+        ],
+        "description": "读取/写入 设备上的容量"
+    },"Occupied": {
+        "prefix": "Occupied",
+        "body": [
+            "Occupied"
+        ],
+        "description": "返回设备指定的插槽是否被占用，被占用为 1，否则为 0"
+    },"OccupantHash": {
+        "prefix": "OccupantHash",
+        "body": [
+            "OccupantHash"
+        ],
+        "description": "返回设备指定的插槽占用对象的 HASH"
+    },"Damage": {
+        "prefix": "Damage",
+        "body": [
+            "Damage"
+        ],
+        "description": "返回设备指定的插槽是否损坏，损坏返回 1，否则返回 0"
+    },"Class": {
+        "prefix": "Class",
+        "body": [
+            "Class"
+        ],
+        "description": "返回表示对象的整数"
+    },"MaxQuantity": {
+        "prefix": "MaxQuantity",
+        "body": [
+            "MaxQuantity"
+        ],
+        "description": "返回设备指定的插槽的物品的最大堆栈值"
+    },"SortingClass": {
+        "prefix": "SortingClass",
+        "body": [
+            "SortingClass"
+        ],
+        "description": "返回表示对象的整数"
+    },"ChargeRatio": {
+        "prefix": "ChargeRatio",
+        "body": [
+            "ChargeRatio"
+        ],
+        "description": "返回充量插槽成员的电量比例，0 - 1"
+    }
 }
