@@ -11,4 +11,4 @@
 wiki地址 [https://stationeers-wiki.com/]
 
 ### 文件扩展名
-他能打开任何 *.ic10 的文件
+- 他能打开 空间站工程师的 ic10 编程代码文件, *.ic10 的文件

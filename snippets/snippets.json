@@ -943,5 +943,342 @@
             "sdse ${1:r?} ${2:d?}"
         ],
         "description": "检测网络中是否有设备(d?)连接的设备, 如果 d? 已连接, 则寄存器 r?=1, 否则 r?=0"
-    }
+    },
+    "RatioNitrogen": {
+        "prefix": "RatioNitrogen",
+        "body": [
+            "RatioNitrogen"
+        ],
+        "description": "返回空间或设备里 氮气(Nitrogen) 所占的比例"
+    },
+    "RatioPollutant": {
+        "prefix": "RatioPollutant",
+        "body": [
+            "RatioPollutant"
+        ],
+        "description": "返回空间或设备里 污染物(Pollutant) 所占的比例"
+    },
+    "RatioCarbonDioxide": {
+        "prefix": "RatioCarbonDioxide",
+        "body": [
+            "RatioCarbonDioxide"
+        ],
+        "description": "返回空间或设备里 二氧化碳(CarbonDioxide) 所占的比例"
+    },
+    "RatioNitrousOxide": {
+        "prefix": "RatioNitrousOxide",
+        "body": [
+            "RatioNitrousOxide"
+        ],
+        "description": "返回空间或设备里 氧化亚氮(NitrousOxide) 所占的比例"
+    },
+    "RatioVolatiles": {
+        "prefix": "RatioVolatiles",
+        "body": [
+            "RatioVolatiles"
+        ],
+        "description": "返回空间或设备里 挥发性有机物(Volatiles) 所占的比例"
+    },
+    "RatioOxygen": {
+        "prefix": "RatioVolatiles",
+        "body": [
+            "RatioVolatiles"
+        ],
+        "description": "返回空间或设备里 挥发性有机物(Volatiles) 所占的比例"
+    },
+    "NextWeatherEventTime": {
+        "prefix": "NextWeatherEventTime",
+        "body": [
+            "NextWeatherEventTime"
+        ],
+        "description": "下一次风暴来临的时间(秒)"
+    },
+    "SettingInput": {
+        "prefix": "SettingInput",
+        "body": [
+            "SettingInput"
+        ],
+        "description": "读取/写入 设置输入"
+    },
+    "SettingOutput": {
+        "prefix": "SettingOutput",
+        "body": [
+            "SettingOutput"
+        ],
+        "description": "读取/写入 设置输出"
+    },
+    "TotalMoles": {
+        "prefix": "TotalMoles",
+        "body": [
+            "TotalMoles"
+        ],
+        "description": "返回总摩尔"
+    },
+    "Pressure": {
+        "prefix": "Pressure",
+        "body": [
+            "Pressure"
+        ],
+        "description": "返回空间或设备的压力值"
+    },
+    "Temperature": {
+        "prefix": "Temperature",
+        "body": [
+            "Temperature"
+        ],
+        "description": "返回空间或设备的温度值"
+    },
+    "Power": {
+        "prefix": "Power",
+        "body": [
+            "Power"
+        ],
+        "description": "返回设备是否通电，通电返回 1，否则返回 0"
+    },
+    "Open": {
+        "prefix": "Open",
+        "body": [
+            "Open"
+        ],
+        "description": "读取/写入 设备是否打开，打开为 1，关闭为 0"
+    },
+    "Mode": {
+        "prefix": "Mode",
+        "body": [
+            "Mode"
+        ],
+        "description": "读取/写入 设备的模式，不同的设备有不同的效果，具体参考游戏里的百科"
+    },
+    "Lock": {
+        "prefix": "Lock",
+        "body": [
+            "Lock"
+        ],
+        "description": "读取/写入 设备是否锁定，锁定为 1，未锁为 0"
+    },
+    "Setting": {
+        "prefix": "Setting",
+        "body": [
+            "Setting"
+        ],
+        "description": "读取/写入 设备的变量，不同的设备有不同的效果，具体参考游戏里的百科"
+    },
+    "Maximum": {
+        "prefix": "Maximum",
+        "body": [
+            "Maximum"
+        ],
+        "description": "返回最大值"
+    },
+    "Ratio": {
+        "prefix": "Ratio",
+        "body": [
+            "Ratio"
+        ],
+        "description": "返回比例值，返回 0 - 1 之间的数值，不同的设备有不同的效果，具体参考游戏里的百科。"
+    },
+    "Quantity": {
+        "prefix": "Quantity",
+        "body": [
+            "Quantity"
+        ],
+        "description": "返回数量值，不同的设备有不同的效果，具体参考游戏里的百科。"
+    },
+    "On": {
+        "prefix": "On",
+        "body": [
+            "On"
+        ],
+        "description": "读取/写入 设备的打开状态，打开为 1，关闭为 0"
+    },
+    "RequiredPower": {
+        "prefix": "RequiredPower",
+        "body": [
+            "RequiredPower"
+        ],
+        "description": "返回设备的待机功率，不一定包含设备的额外功率"
+    },
+    "PrefabHash": {
+        "prefix": "PrefabHash",
+        "body": [
+            "PrefabHash"
+        ],
+        "description": "返回设备的当前 HASH"
+    },
+    "ReferenceId": {
+        "prefix": "ReferenceId",
+        "body": [
+            "ReferenceId"
+        ],
+        "description": "返回设备的唯一 Id"
+    },
+    "NameHash": {
+        "prefix": "NameHash",
+        "body": [
+            "NameHash"
+        ],
+        "description": "返回设备名称的 HASH 值，一个 32 bit 的整数"
+    },
+    "Reagents": {
+        "prefix": "Reagents",
+        "body": [
+            "Reagents"
+        ],
+        "description": "返回设备需求的化学元素总数"
+    },
+    "RecipeHash": {
+        "prefix": "RecipeHash",
+        "body": [
+            "RecipeHash"
+        ],
+        "description": "读取/写入 设备当前生产的配方的 HASH"
+    },
+    "PowerActual": {
+        "prefix": "PowerActual",
+        "body": [
+            "PowerActual"
+        ],
+        "description": "返回网络当前的实际耗电量"
+    },
+    "PowerPotential": {
+        "prefix": "PowerPotential",
+        "body": [
+            "PowerPotential"
+        ],
+        "description": "返回网络当前的实际供电量"
+    },
+    "PowerGeneration": {
+        "prefix": "PowerGeneration",
+        "body": [
+            "PowerGeneration"
+        ],
+        "description": "返回设备的发电功率"
+    },
+    "Vertical": {
+        "prefix": "Vertical",
+        "body": [
+            "Vertical"
+        ],
+        "description": "读取/写入 垂直角度设置"
+    },"Horizontal": {
+        "prefix": "Horizontal",
+        "body": [
+            "Horizontal"
+        ],
+        "description": "读取/写入 水平角度设置"
+    },"Activate": {
+        "prefix": "Activate",
+        "body": [
+            "Activate"
+        ],
+        "description": "读取/写入 设备是否激活，激活为 1，未激活为 0，通常激活时也意味着设备在工作中"
+    },"Combustion": {
+        "prefix": "Combustion",
+        "body": [
+            "Combustion"
+        ],
+        "description": "返回空间或设备及管道中是否有火灾"
+    },"CombustionInput": {
+        "prefix": "CombustionInput",
+        "body": [
+            "CombustionInput"
+        ],
+        "description": "返回设备的输入管道中是否有火灾"
+    },"CombustionOutput": {
+        "prefix": "CombustionOutput",
+        "body": [
+            "CombustionOutput"
+        ],
+        "description": "返回设备的输出管道中是否有火灾"
+    },"CombustionOutput2": {
+        "prefix": "CombustionOutput2",
+        "body": [
+            "CombustionOutput2"
+        ],
+        "description": "返回设备的输出2管道中是否有火灾"
+    },"Color": {
+        "prefix": "Color",
+        "body": [
+            "Color"
+        ],
+        "description": "读取/写入 设备显示的颜色: 0=Blue(蓝色), 1=Grey(灰色), 2=Green(绿色), 3=Orange(橙色), 4=Red(红色), 5=Yellow(黄色), 6=White(白色), 7=Black(黑色), 8=Brown(棕色), 9=Khaki(卡其色), 10=Pink(粉色), 11=Purple(紫色)"
+    },"Bpm": {
+        "prefix": "Bpm",
+        "body": [
+            "Bpm"
+        ],
+        "description": "返回设备当前每分钟的转速"
+    },"Charge": {
+        "prefix": "Charge",
+        "body": [
+            "Charge"
+        ],
+        "description": "返回设备当前是否在充电"
+    },"ClearMemory": {
+        "prefix": "ClearMemory",
+        "body": [
+            "ClearMemory"
+        ],
+        "description": "写入 1 时设备 ImportCount 和 ExportCount 重置为 0，当激活时自动重置为 0"
+    },"ImportCount": {
+        "prefix": "ImportCount",
+        "body": [
+            "ImportCount"
+        ],
+        "description": "返回设备自上次 ClearMemory 后的导入计数项"
+    },"ExportCount": {
+        "prefix": "ExportCount",
+        "body": [
+            "ExportCount"
+        ],
+        "description": "返回设备自上次 ClearMemory 后的导出计数项"
+    },"Error": {
+        "prefix": "Error",
+        "body": [
+            "Error"
+        ],
+        "description": "返回设备是否在错误的状态，错误为 1，否则为 0"
+    },"Idle": {
+        "prefix": "Idle",
+        "body": [
+            "Idle"
+        ],
+        "description": "返回设备是否在空闲的状态，空闲为 1，否则为 0"
+    },"SizeX": {
+        "prefix": "SizeX",
+        "body": [
+            "SizeX"
+        ],
+        "description": "返回设备在网格中对向 X(右)轴上的大小(大型网格为2米)"
+    },"SizeZ": {
+        "prefix": "SizeZ",
+        "body": [
+            "SizeZ"
+        ],
+        "description": "返回设备在网格中对向 Z(前)轴上的大小(大型网格为2米)"
+    },"PositionX": {
+        "prefix": "PositionX",
+        "body": [
+            "PositionX"
+        ],
+        "description": "返回当前世界坐标的 X轴 坐标"
+    },"PositionY": {
+        "prefix": "PositionY",
+        "body": [
+            "PositionY"
+        ],
+        "description": "返回当前世界坐标的 Y轴 坐标"
+    },"PositionZ": {
+        "prefix": "PositionZ",
+        "body": [
+            "PositionZ"
+        ],
+        "description": "返回当前世界坐标的 Z轴 坐标"
+    },"CompletionRatio": {
+        "prefix": "CompletionRatio",
+        "body": [
+            "CompletionRatio"
+        ],
+        "description": "返回设备当前工作的完成比例"
+    }    
 }

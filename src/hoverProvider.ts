@@ -8,7 +8,6 @@ const snippets: {
 	"description": string
 }[] = require("../snippets/snippets.json");
 
-const reg = new RegExp(/\\b[\w\W]*/);
 const regTooltipBegin = new RegExp(/\$\{(\d+):/g);
 const regTooltipEnd = new RegExp(/\}/g);
 
