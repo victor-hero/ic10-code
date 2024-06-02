@@ -11,7 +11,7 @@ const snippets: {
 const regTooltipBegin = new RegExp(/\$\{(\d+):/g);
 const regTooltipEnd = new RegExp(/\}/g);
 
-export class IcCodeProvideHover implements vscode.HoverProvider {
+export class IcCodeHoverProvider implements vscode.HoverProvider {
 
 	constructor() {
 

@@ -1202,10 +1202,10 @@
             "Color"
         ],
         "description": "读取/写入 设备显示的颜色: 0=Blue(蓝色), 1=Grey(灰色), 2=Green(绿色), 3=Orange(橙色), 4=Red(红色), 5=Yellow(黄色), 6=White(白色), 7=Black(黑色), 8=Brown(棕色), 9=Khaki(卡其色), 10=Pink(粉色), 11=Purple(紫色)"
-    },"Bpm": {
-        "prefix": "Bpm",
+    },"Rpm": {
+        "prefix": "Rpm",
         "body": [
-            "Bpm"
+            "Rpm"
         ],
         "description": "返回设备当前每分钟的转速"
     },"Charge": {
@@ -1213,7 +1213,7 @@
         "body": [
             "Charge"
         ],
-        "description": "返回设备当前是否在充电"
+        "description": "返回设备当前充电的电量"
     },"ClearMemory": {
         "prefix": "ClearMemory",
         "body": [
@@ -1292,6 +1292,24 @@
             "Volume"
         ],
         "description": "读取/写入 设备上的容量"
+    },"Stress": {
+        "prefix": "Stress",
+        "body": [
+            "Stress"
+        ],
+        "description": "返回设备上的工作压力，当到达 100 时设备将自动关闭"
+    },"Throttle": {
+        "prefix": "Throttle",
+        "body": [
+            "Throttle"
+        ],
+        "description": "读取/写入 设备的工作速率，范围是 0-100"
+    },"CombustionLimiter": {
+        "prefix": "CombustionLimiter",
+        "body": [
+            "CombustionLimiter"
+        ],
+        "description": "读取/写入 设备内部的燃烧速率，范围是 0-100，0 为最慢速的燃烧，100 为最快速的燃烧"
     },"Occupied": {
         "prefix": "Occupied",
         "body": [

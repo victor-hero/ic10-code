@@ -54,4 +54,4 @@ class IcCodeHoverProvider {
     }
 }
 exports.IcCodeHoverProvider = IcCodeHoverProvider;
-//# sourceMappingURL=hoverProvider.js.map
+//# sourceMappingURL=IcCodeHoverProvider.js.map

@@ -26,14 +26,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.IcCodeHoverProvider = void 0;
+exports.IcTokensProvideHover = void 0;
 const vscode = __importStar(require("vscode"));
 const path_1 = __importDefault(require("path"));
-const snippets = require("../snippets/snippets.json");
-const regTooltipBegin = new RegExp(/\$\{(\d+):/g);
-const regTooltipEnd = new RegExp(/\}/g);
-class IcCodeHoverProvider {
+const tokenTypes = ['class', 'interface'];
+const tokenModifiers = ['declaration', 'documentation'];
+const legend = new vscode.SemanticTokensLegend(tokenTypes, tokenModifiers);
+class IcTokensProvideHover {
     constructor() {
+    }
+    onDidChangeSemanticTokens;
+    provideDocumentSemanticTokens(document, token) {
+        throw new Error('Method not implemented.');
+    }
+    provideDocumentSemanticTokensEdits(document, previousResultId, token) {
+        throw new Error('Method not implemented.');
     }
     provideHover(document, position, token) {
         const fileName = document.fileName;
@@ -41,17 +48,8 @@ class IcCodeHoverProvider {
         const word = document.getText(document.getWordRangeAtPosition(position));
         const line = document.lineAt(position);
         let mdString = new vscode.MarkdownString();
-        if (snippets[word] !== undefined) {
-            //console.log("测试输出:" + snippets[word].prefix);
-            let bodyString = snippets[word].body[0].replaceAll(regTooltipBegin, "");
-            bodyString = bodyString.replaceAll(regTooltipEnd, "");
-            mdString.appendCodeblock(bodyString);
-            mdString.appendCodeblock(snippets[word].description);
-        }
-        //const projectPath = util.getProjectPath(document);
-        //const lineText = document.lineAt(position).text.substring(0, position.character);
         return new vscode.Hover(mdString);
     }
 }
-exports.IcCodeHoverProvider = IcCodeHoverProvider;
-//# sourceMappingURL=hoverProvider.js.map
+exports.IcTokensProvideHover = IcTokensProvideHover;
+//# sourceMappingURL=tokensProvider.js.map

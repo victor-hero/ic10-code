@@ -106,7 +106,7 @@
 		"logic_type": {
 			"patterns": [{
 				"name": "meta.embedded.assembly",
-				"match": "\\b(PositionX|PositionY|PositionZ|RatioNitrogen|RatioPollutant|RatioCarbonDioxide|RatioNitrousOxide|RatioVolatiles|RatioOxygen|NextWeatherEventTime|SettingInput|SettingOutput|TotalMoles|Pressure|Temperature|Power|Open|Mode|Lock|Setting|Maximum|Ratio|Quantity|On|RequiredPower|PrefabHash|ReferenceId|NameHash|Reagents|RecipeHash|PowerActual|PowerPotential|PowerGeneration|SizeX|SizeZ|SignalStrength|SignalID|Vertical|Activate|AirRelease|Bpm|Charge|ClearMemory|CollectableGoods|Color|Combustion|CombustionInput|CombustionLimiter|CombustionOutput|CombustionOutput2|CompletionRatio|ElevatorLevel|ElevatorSpeed|Error|ExportCount|Filtration|Flush|ForceWrite|Fuel|Harvest|Horizontal|Idle|ImportCount|InterrogationProgress|LineNumber)\\b"
+				"match": "\\b(Rpm|Stress|Throttle|PositionX|PositionY|PositionZ|RatioNitrogen|RatioPollutant|RatioCarbonDioxide|RatioNitrousOxide|RatioVolatiles|RatioOxygen|NextWeatherEventTime|SettingInput|SettingOutput|TotalMoles|Pressure|Temperature|Power|Open|Mode|Lock|Setting|Maximum|Ratio|Quantity|On|RequiredPower|PrefabHash|ReferenceId|NameHash|Reagents|RecipeHash|PowerActual|PowerPotential|PowerGeneration|SizeX|SizeZ|SignalStrength|SignalID|Vertical|Activate|AirRelease|Charge|ClearMemory|CollectableGoods|Color|Combustion|CombustionInput|CombustionLimiter|CombustionOutput|CombustionOutput2|CompletionRatio|ElevatorLevel|ElevatorSpeed|Error|ExportCount|Filtration|Flush|ForceWrite|Fuel|Harvest|Horizontal|Idle|ImportCount|InterrogationProgress|LineNumber)\\b"
 			}]
 		},
 		"slot_type": {
